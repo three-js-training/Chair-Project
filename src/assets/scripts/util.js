@@ -1,18 +1,16 @@
 import * as THREE from "three";
+import GLTFLoader from "three-gltf-loader";
 import createScene from "./scene";
 import createRenderer from "./renderer";
 import createCamera from "./camera";
-import { BCG, WIDTH, HEIGHT, CAMERA_FAR } from "./variables";
-
-// import { WIDTH, HEIGHT } from "./variables";
+import loadModel from "./loadModel";
+import { BCG, WIDTH, HEIGHT, CHAIR_MODEL, CAMERA_FAR } from "./variables";
 
 function init(){
 
     let scene = createScene(THREE, BCG),
     renderer = createRenderer(THREE, WIDTH, HEIGHT),
     camera = createCamera(THREE, WIDTH, HEIGHT, CAMERA_FAR);
-
-    console.log(" hello from init" + scene + " " + camera + " " + renderer);
 
     return {
         scn: scene,
@@ -24,7 +22,6 @@ function init(){
 
 function animate(renderer, scene, camera){
     
-    // console.log("animate function: " + renderer);
     if(camera == undefined || scene == undefined || renderer == undefined){
         return;
     }
@@ -35,8 +32,10 @@ function animate(renderer, scene, camera){
 
 function start() {
 
+    console.log(CHAIR_MODEL)
     let setupObj = init();
     animate(setupObj.ren, setupObj.scn, setupObj.cam);
+    loadModel(THREE, GLTFLoader, setupObj.scene, CHAIR_MODEL);
 
 }
 
