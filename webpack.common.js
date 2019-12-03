@@ -1,4 +1,3 @@
-const path = require("path");
 
 module.exports = {
   entry: {
@@ -12,7 +11,7 @@ module.exports = {
         use: ["html-loader"]
       },
       {
-        test: /\.(svg|png|jpeg|jpg|gif|glb)$/,
+        test: /\.(svg|png|jpeg|jpg|gif|glb|gltf)$/,
         use: {
           loader: "file-loader",
           options: {

@@ -11,6 +11,8 @@ function init(){
     let scene = createScene(THREE, BCG),
     renderer = createRenderer(THREE, WIDTH, HEIGHT),
     camera = createCamera(THREE, WIDTH, HEIGHT, CAMERA_FAR);
+    console.log(CHAIR_MODEL)
+
 
     return {
         scn: scene,
@@ -22,9 +24,20 @@ function init(){
 
 function animate(renderer, scene, camera){
     
-    if(camera == undefined || scene == undefined || renderer == undefined){
-        return;
+    if(camera == undefined){
+        console.log("camera issue")
+        // return;
     }
+
+    if(scene == undefined ){
+        console.log("scene issue")
+    }
+
+    if(renderer == undefined){
+        console.log("renderer issue");
+    }
+
+    console.log(scene, camera);
     
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
@@ -32,10 +45,9 @@ function animate(renderer, scene, camera){
 
 function start() {
 
-    console.log(CHAIR_MODEL)
     let setupObj = init();
+    loadModel(GLTFLoader, setupObj.scene);
     animate(setupObj.ren, setupObj.scn, setupObj.cam);
-    loadModel(THREE, GLTFLoader, setupObj.scene, CHAIR_MODEL);
 
 }
 

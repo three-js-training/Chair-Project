@@ -2,7 +2,7 @@
 
  function createRenderer(THREE, WIDTH, HEIGHT){
 
-    const canvas = document.querySelector("#canvas"),
+    var canvas = document.querySelector("#canvas"),
          renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
          renderer.setSize(WIDTH, HEIGHT);
 
