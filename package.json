@@ -4,7 +4,7 @@
   "description": "Webpack Build for clie",
   "main": "index.js",
   "dependencies": {
-    "three": "^0.111.0",
+    "three": "^0.137.0",
     "three-gltf-loader": "^1.110.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
